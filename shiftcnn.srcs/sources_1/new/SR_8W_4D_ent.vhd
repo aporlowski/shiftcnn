@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 03/26/2021 04:28:12 PM
+-- Create Date: 03/30/2021 08:56:17 AM
 -- Design Name: 
--- Module Name: SR_8W_3D_ent - Behavioral
+-- Module Name: SR_8W_4D_ent - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,19 +31,20 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity SR_8W_3D_ent is
+entity SR_8W_4D_ent is
     port(
         clk : in std_logic;
         sr_in : in std_logic_vector( 7 downto 0);
         sr_out : out std_logic_vector(7 downto 0);
         sr_out2 : out std_logic_vector(7 downto 0);
-        sr_out3 : out std_logic_vector(7 downto 0)
+        sr_out3 : out std_logic_vector(7 downto 0);
+        sr_out4 : out std_logic_vector(7 downto 0)
     );
-end SR_8W_3D_ent;
+end SR_8W_4D_ent;
 
-architecture Behavioral of SR_8W_3D_ent is
+architecture Behavioral of SR_8W_4D_ent is
 
- type sr_type is array (1 downto 0)
+ type sr_type is array (2 downto 0)
     of std_logic_vector(7 downto 0);
   
  signal sr : sr_type;
@@ -56,8 +57,9 @@ begin
  
       sr <= sr(sr'high - 1 downto sr'low) & sr_in;
       sr_out <= sr(sr'high);
-      sr_out2 <= sr(0);
-      sr_out3 <= sr_in;
+      sr_out2 <= sr(1);
+      sr_out3 <= sr(0);
+      sr_out4 <= sr_in;
  
     end if;
   end process;
