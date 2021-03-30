@@ -48,13 +48,13 @@ use work.output_buffer_type.all;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity ARR_SR_15W_4D_TEST is
+entity ARR_SR_45W_4D_TEST is
 --  Port ( );
-end ARR_SR_15W_4D_TEST;
+end ARR_SR_45W_4D_TEST;
 
-architecture Behavioral of ARR_SR_15W_4D_TEST is
+architecture Behavioral of ARR_SR_45W_4D_TEST is
 
-COMPONENT ARR_SR_15W_4D_ent
+COMPONENT ARR_SR_45W_4D_ent
     port(
         clk : in std_logic;
         inputs: in inputBuffer;
@@ -69,7 +69,7 @@ end COMPONENT;
     constant test_period : time := 10 ns;
     
 begin
-    uut: ARR_SR_15W_4D_ent port map(
+    uut: ARR_SR_45W_4D_ent port map(
         clk => clk,
         inputs => inputs,
         outputs1 => outputs1,

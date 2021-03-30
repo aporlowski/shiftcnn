@@ -47,15 +47,15 @@ use work.output_buffer_type.all;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity ARR_SR_15W_4D_ent is
+entity ARR_SR_45W_4D_ent is
  port(
         clk : in std_logic;
         inputs: in inputBuffer;
         outputs1, outputs2, outputs3, outputs4: out outputBuffer
     );
-end ARR_SR_15W_4D_ent;
+end ARR_SR_45W_4D_ent;
 
-architecture Behavioral of ARR_SR_15W_4D_ent is
+architecture Behavioral of ARR_SR_45W_4D_ent is
 
     COMPONENT SR_8W_4D_ent
     PORT(
