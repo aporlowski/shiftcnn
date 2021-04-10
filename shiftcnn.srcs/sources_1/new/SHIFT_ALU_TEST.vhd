@@ -60,6 +60,7 @@ end component;
 signal input: signed (3 downto 0);
 signal output0, output1, output2, output3, output4, output5, output6, output7,output8, output9, output10, output11, output12, output13, output14: std_logic_vector (7 downto 0);
 
+
 constant test_period : time := 10 ns;
 
 begin
@@ -82,6 +83,7 @@ uut: SHIFT_ALU_ent port map(
     output13 => output13,
     output14 => output14  
 );
+
 
 stim_process :process
         begin
