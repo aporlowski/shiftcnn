@@ -44,6 +44,7 @@ entity MUX_16_1_ent is
     port(
             inputs: in muxInput;
             s: in std_logic_vector (3 downto 0);
+            rst: in std_logic;
             output: out std_logic_vector (7 downto 0)
         );
 end MUX_16_1_ent;

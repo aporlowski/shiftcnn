@@ -65,9 +65,11 @@ entity SHIFT_CNN_ent is
             weight2 : in std_logic_vector (3 downto 0);
             weight3 : in std_logic_vector (3 downto 0);
             clk : in std_logic;
-            output: out std_logic_vector (7 downto 0); -- temportaty outputs for testing
-            output2: out std_logic_vector (7 downto 0); -- temportaty outputs for testing
-            output3: out std_logic_vector (7 downto 0) -- temportaty outputs for testing
+            clk2 : in std_logic;
+            rst : in std_logic;
+            output: inout std_logic_vector (7 downto 0) -- temportaty outputs for testing
+            --output2: out std_logic_vector (7 downto 0); -- temportaty outputs for testing
+            --output3: out std_logic_vector (7 downto 0) -- temportaty outputs for testing
         );
 end SHIFT_CNN_ent;
 
@@ -102,6 +104,7 @@ port(
         s1: in std_logic_vector (3 downto 0);
         s2: in std_logic_vector (3 downto 0);
         s3: in std_logic_vector (3 downto 0);
+        rst: in std_logic;
         output1: out std_logic_vector (7 downto 0);
         output2: out std_logic_vector (7 downto 0);
         output3: out std_logic_vector (7 downto 0)
@@ -115,11 +118,22 @@ COMPONENT ARR_SR_45W_4D_ent is
         outputs1, outputs2, outputs3, outputs4: out outputBuffer
     );
 end COMPONENT;
+
+
+component ADDR_ARR_ent is
+port( 
+    in1, in2, in3: in std_logic_vector (7 downto 0);        
+    clk : in std_logic;
+    rst : in std_logic;
+    out1 : inout std_logic_vector (7 downto 0)
+);
+end component;
   
  signal sr_in : inputBuffer;
  signal sr_o1, sr_o2, sr_o3, sr_o4 : outputBuffer;
  signal mux_in1, mux_in2, mux_in3 : muxInput;
- -- signal mux_o1, mux_o2, mux_o3 : std_logic_vector (7 downto 0);
+ signal mux_o1, mux_o2, mux_o3 : std_logic_vector (7 downto 0);
+ 
 
 begin
 
@@ -177,7 +191,7 @@ alu_3: SHIFT_ALU_ent port map(input=>input3,
                                      output14 => sr_in(14)
                                 );
 
-arr_sr: ARR_SR_45W_4D_ent port map(inputs => sr_in, clk => clk, outputs1 => sr_o1, outputs2 => sr_o2, outputs3 => sr_o3, outputs4 => sr_o4);
+arr_sr: ARR_SR_45W_4D_ent port map(inputs => sr_in, clk => clk2, outputs1 => sr_o1, outputs2 => sr_o2, outputs3 => sr_o3, outputs4 => sr_o4);
 
 mux_in1 <= muxInput(sr_o4(44 downto 30));
 mux_in2 <= muxInput(sr_o4(29 downto 15));
@@ -185,7 +199,8 @@ mux_in3 <= muxInput(sr_o4(14 downto 0));
 
 arr_mux: ARR_MUX_ent port map(input1 => mux_in1, input2 => mux_in2, input3 =>mux_in3,
                               s1 => weight1, s2 => weight2, s3 => weight3,
-                              output1 => output, output2 => output2, output3 => output3);
+                              rst => rst,
+                              output1 => mux_o1, output2 => mux_o2, output3 => mux_o3);
 
-
+arr_addr: ADDR_ARR_ent port map(in1=>mux_o1, in2=>mux_o2,in3 => mux_o3,clk=>clk, rst=>rst,out1=>output);
 end Behavioral;

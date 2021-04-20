@@ -48,6 +48,7 @@ port(
         s1: in std_logic_vector (3 downto 0);
         s2: in std_logic_vector (3 downto 0);
         s3: in std_logic_vector (3 downto 0);
+        rst: in std_logic;
         output1: out std_logic_vector (7 downto 0);
         output2: out std_logic_vector (7 downto 0);
         output3: out std_logic_vector (7 downto 0)
@@ -60,15 +61,16 @@ COMPONENT MUX_16_1_ent
     PORT(
         inputs: in muxInput;
         s: in std_logic_vector (3 downto 0);
+        rst: in std_logic;
         output: out std_logic_vector (7 downto 0)
     );
     END COMPONENT;
 
 begin
 
-mux_1: MUX_16_1_ent port map (inputs => input1, s => s1, output => output1);
-mux_2: MUX_16_1_ent port map (inputs => input2, s => s2, output => output2);
-mux_3: MUX_16_1_ent port map (inputs => input3, s => s3, output => output3);
+mux_1: MUX_16_1_ent port map (inputs => input1, s => s1,rst=>rst, output => output1);
+mux_2: MUX_16_1_ent port map (inputs => input2, s => s2,rst=>rst,  output => output2);
+mux_3: MUX_16_1_ent port map (inputs => input3, s => s3,rst=>rst, output => output3);
 
 
 end Behavioral;
