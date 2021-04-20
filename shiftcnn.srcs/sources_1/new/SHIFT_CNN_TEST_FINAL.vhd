@@ -152,6 +152,62 @@ stim_process :process
                 
                 wait for 20 ns;
                 
+                input1 <= to_signed(3, 4);          
+                input2 <= to_signed(7, 4); 
+                input3 <= to_signed(-1, 4);
+                              
+                weight1 <= "0000";  
+                weight2 <= "1111";  
+                weight3 <= "0011";
+                
+                wait for 20 ns;
+                                               
+                weight1 <= "0000";  
+                weight2 <= "0000";  
+                weight3 <= "1010";
+                
+                wait for 20 ns;
+                
+                weight1 <= "0001";  
+                weight2 <= "0010";  
+                weight3 <= "1100";
+                
+                wait for 20 ns;
+                                               
+                weight1 <= "0000";  
+                weight2 <= "1001";  
+                weight3 <= "0101";
+                
+                wait for 20 ns;
+                
+                input1 <= to_signed(4, 4);          
+                input2 <= to_signed(-4, 4); 
+                input3 <= to_signed(0, 4);
+                              
+                weight1 <= "0000";  
+                weight2 <= "1111";  
+                weight3 <= "0011";
+                
+                wait for 20 ns;
+                                               
+                weight1 <= "0000";  
+                weight2 <= "0000";  
+                weight3 <= "1010";
+                
+                wait for 20 ns;
+                
+                weight1 <= "0001";  
+                weight2 <= "0010";  
+                weight3 <= "1100";
+                
+                wait for 20 ns;
+                                               
+                weight1 <= "0000";  
+                weight2 <= "1001";  
+                weight3 <= "0101";
+                
+                wait for 20 ns;
+                
                 
                 
            

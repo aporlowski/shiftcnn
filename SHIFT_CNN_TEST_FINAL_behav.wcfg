@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="SHIFT_CNN_TEST_FINAL_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="SHIFT_CNN_TEST_FINAL" />
+            <top_module name="input_buffer_type" />
+            <top_module name="mux_input_type" />
+            <top_module name="output_buffer_type" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="44610fs"></ZoomStartTime>
+      <ZoomEndTime time="271811fs"></ZoomEndTime>
+      <Cursor1Time time="363930fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="270"></NameColumnWidth>
+      <ValueColumnWidth column_width="130"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="11" />
+   <wvobject fp_name="/SHIFT_CNN_TEST_FINAL/input1" type="array">
+      <obj_property name="ElementShortName">input1[3:0]</obj_property>
+      <obj_property name="ObjectShortName">input1[3:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SHIFT_CNN_TEST_FINAL/input2" type="array">
+      <obj_property name="ElementShortName">input2[3:0]</obj_property>
+      <obj_property name="ObjectShortName">input2[3:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SHIFT_CNN_TEST_FINAL/input3" type="array">
+      <obj_property name="ElementShortName">input3[3:0]</obj_property>
+      <obj_property name="ObjectShortName">input3[3:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SHIFT_CNN_TEST_FINAL/weight1" type="array">
+      <obj_property name="ElementShortName">weight1[3:0]</obj_property>
+      <obj_property name="ObjectShortName">weight1[3:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SHIFT_CNN_TEST_FINAL/weight2" type="array">
+      <obj_property name="ElementShortName">weight2[3:0]</obj_property>
+      <obj_property name="ObjectShortName">weight2[3:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SHIFT_CNN_TEST_FINAL/weight3" type="array">
+      <obj_property name="ElementShortName">weight3[3:0]</obj_property>
+      <obj_property name="ObjectShortName">weight3[3:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SHIFT_CNN_TEST_FINAL/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SHIFT_CNN_TEST_FINAL/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SHIFT_CNN_TEST_FINAL/clk2" type="logic">
+      <obj_property name="ElementShortName">clk2</obj_property>
+      <obj_property name="ObjectShortName">clk2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SHIFT_CNN_TEST_FINAL/output" type="array">
+      <obj_property name="ElementShortName">output[7:0]</obj_property>
+      <obj_property name="ObjectShortName">output[7:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">4</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/SHIFT_CNN_TEST_FINAL/test_period" type="other">
+      <obj_property name="ElementShortName">test_period</obj_property>
+      <obj_property name="ObjectShortName">test_period</obj_property>
+   </wvobject>
+</wave_config>

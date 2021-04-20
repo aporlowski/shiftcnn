@@ -45,6 +45,9 @@ port(
         input1: in muxInput;
         input2: in muxInput;
         input3: in muxInput;
+        value1: std_logic_vector(7 downto 0);
+        value2: std_logic_vector(7 downto 0);
+        value3: std_logic_vector(7 downto 0);
         s1: in std_logic_vector (3 downto 0);
         s2: in std_logic_vector (3 downto 0);
         s3: in std_logic_vector (3 downto 0);
@@ -60,6 +63,7 @@ architecture Behavioral of ARR_MUX_ent is
 COMPONENT MUX_16_1_ent
     PORT(
         inputs: in muxInput;
+        value: std_logic_vector( 7 downto 0);
         s: in std_logic_vector (3 downto 0);
         rst: in std_logic;
         output: out std_logic_vector (7 downto 0)
@@ -68,9 +72,9 @@ COMPONENT MUX_16_1_ent
 
 begin
 
-mux_1: MUX_16_1_ent port map (inputs => input1, s => s1,rst=>rst, output => output1);
-mux_2: MUX_16_1_ent port map (inputs => input2, s => s2,rst=>rst,  output => output2);
-mux_3: MUX_16_1_ent port map (inputs => input3, s => s3,rst=>rst, output => output3);
+mux_1: MUX_16_1_ent port map (inputs => input1, value=>value1, s => s1,rst=>rst, output => output1);
+mux_2: MUX_16_1_ent port map (inputs => input2, value=>value2, s => s2,rst=>rst,  output => output2);
+mux_3: MUX_16_1_ent port map (inputs => input3, value=>value3, s => s3,rst=>rst, output => output3);
 
 
 end Behavioral;

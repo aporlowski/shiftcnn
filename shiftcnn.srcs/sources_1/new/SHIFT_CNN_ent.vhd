@@ -104,6 +104,9 @@ port(
         s1: in std_logic_vector (3 downto 0);
         s2: in std_logic_vector (3 downto 0);
         s3: in std_logic_vector (3 downto 0);
+        value1 : in std_logic_vector (7 downto 0);
+        value2 : in std_logic_vector (7 downto 0);
+        value3 : in std_logic_vector (7 downto 0);
         rst: in std_logic;
         output1: out std_logic_vector (7 downto 0);
         output2: out std_logic_vector (7 downto 0);
@@ -133,7 +136,7 @@ end component;
  signal sr_o1, sr_o2, sr_o3, sr_o4 : outputBuffer;
  signal mux_in1, mux_in2, mux_in3 : muxInput;
  signal mux_o1, mux_o2, mux_o3 : std_logic_vector (7 downto 0);
- 
+ signal temp1, temp2, temp3 : std_logic_vector(7 downto 0);
 
 begin
 
@@ -197,7 +200,16 @@ mux_in1 <= muxInput(sr_o4(44 downto 30));
 mux_in2 <= muxInput(sr_o4(29 downto 15));
 mux_in3 <= muxInput(sr_o4(14 downto 0));
 
+process(input1,input2,input3)
+begin
+temp1 <= std_logic_vector(input1) & "0000";
+temp2 <= std_logic_vector(input2) & "0000";
+temp3 <= std_logic_vector(input3) & "0000";
+end process;
+
+
 arr_mux: ARR_MUX_ent port map(input1 => mux_in1, input2 => mux_in2, input3 =>mux_in3,
+                              value1 => temp1,value2=>temp2, value3=>temp3,
                               s1 => weight1, s2 => weight2, s3 => weight3,
                               rst => rst,
                               output1 => mux_o1, output2 => mux_o2, output3 => mux_o3);
